@@ -55,8 +55,8 @@ conda activate envs
 
 ### 2. Download datasets 
 We train and test Fusang with real data collected from our Ti-IWR1843 millimeter-wave radar. 
-We pick 24 objects that are most frequently seen in the indoor environment (including multiple materials, curvatures and sizes) 
-to evaluate the performance of Fusang, especially in offices and houses.
+We pick 24 objects that are most frequently seen in the indoor environment (including multiple materials, 
+curvatures and sizes) to evaluate the performance of Fusang, especially in offices and houses.
 For each object, we rotate each object and collect the reflected signals at 9 angles (From
 0-180 degrees, 20 degrees at per time) spanning distances of 1-5m.
 The total datasets (94.5GB uncompressed) used in the Fusang system can be downloaded from here. 
@@ -72,10 +72,15 @@ We will get back to you ASAP. Thank you.*
 ```
 # Run the IF_svmd.m in the 01_svmd_precessing.
 ```
-* Hrrp generation. After svmd, the hrrp data formant of the target reflected signal is extracted.
+* Hrrp generation. The hrrp formants of the target reflected signal is extracted.
 ```
 # Run the calculate_Extreme_values.m in the 02_hrrp_generation.
 ```
 Note: Above steps, Matlab R2021b or later is recommended.
 
 #### 3.2 Feature extraction
+After the filtered radar signal is obtained, the system extracts the energy distribution of target 
+radar echo in IQ domain and Hrrp respectively.
+* *Leaves* feature. It's used to represent the energy distribution of target curvature in IQ domain.
+
+* *Branches* feature. It's used to represent the energy distribution of two-dimensional target profiles in hrrp data.
