@@ -13,3 +13,41 @@ different multipath scenarios. We have implemented a prototype of Fusang on a co
 
 ## Overview
 ![overview](./overview.png)
+
+## Quick Start
+
+### 1. Environment installation
+#### 1.1 Setup Conda
+```
+# Conda installation
+
+# For Windows
+Download from official website: https://www.anaconda.com/
+
+# For Linux
+curl -o ~/miniconda.sh -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+# For OSX
+curl -o ~/miniconda.sh -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+
+chmod +x ~/miniconda.sh    
+./miniconda.sh  
+
+source ~/.bashrc          # For Linux
+source ~/.bash_profile    # For OSX
+
+```
+#### 1.2 Setup Python environment for CPU
+```
+# Clone GitHub repo
+conda install git
+git clone https://github.com/OpenNISLab/Pro-Fusang.git
+cd Pro-Fusang
+
+# Install python environment
+cd 04_gnns_hrrp
+conda env create -f environment.yml   
+
+# Activate environment
+conda activate Your envs
+```
