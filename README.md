@@ -61,7 +61,7 @@ For each object, we rotate each object and collect the reflected signals at 9 an
 0-180 degrees, 20 degrees at per time) spanning distances of 1-5m.
 The total datasets (94.5GB uncompressed) used in the Fusang system can be downloaded from here. 
 
-### 3. Usage
+### 3. Step-by-Step Instructions
 *Disclaim: Although we have worked hard to ensure our code are robust, our tool remains a research 
 prototype. It can still have glitches when using in complex, real-life settings. If you discover any bugs, 
 please raise an issue, describing how you ran the program and what problem you encountered. 
@@ -82,5 +82,14 @@ Note: Above steps, Matlab R2021b or later is recommended.
 After the filtered radar signal is obtained, the system extracts the energy distribution of target 
 radar echo in IQ domain and Hrrp respectively.
 * *Leaves* feature. It's used to represent the energy distribution of target curvature in IQ domain.
-
+```
+# Run the data_preprocessed.m in the 03_curvature_extraction.
+```
 * *Branches* feature. It's used to represent the energy distribution of two-dimensional target profiles in hrrp data.
+```
+# Construct the binary tree feature based on hrrp.
+cd 04_gnns_hrrp/Fusang_graph_data_preprocess
+python Fusang_maketree_process_4.0.py
+python Fusang_maketu_process2TU.py
+```
+Note: The preprocessed data path in Section 3.1 needs to be provided with the above code.
