@@ -17,6 +17,7 @@ different multipath scenarios. We have implemented a prototype of Fusang on a co
 ## Quick Start
 
 ### 1. Environment installation
+
 #### 1.1 Setup Conda
 ```
 # Conda installation
@@ -35,9 +36,9 @@ chmod +x ~/miniconda.sh
 
 source ~/.bashrc          # For Linux
 source ~/.bash_profile    # For OSX
-
 ```
-#### 1.2 Setup Python environment for CPU
+
+#### 1.2 Setup Python environment
 ```
 # Clone GitHub repo
 conda install git
@@ -49,5 +50,32 @@ cd 04_gnns_hrrp
 conda env create -f environment.yml   
 
 # Activate environment
-conda activate Your envs
+conda activate envs
 ```
+
+### 2. Download datasets 
+We train and test Fusang with real data collected from our Ti-IWR1843 millimeter-wave radar. 
+We pick 24 objects that are most frequently seen in the indoor environment (including multiple materials, curvatures and sizes) 
+to evaluate the performance of Fusang, especially in offices and houses.
+For each object, we rotate each object and collect the reflected signals at 9 angles (From
+0-180 degrees, 20 degrees at per time) spanning distances of 1-5m.
+The total datasets (94.5GB uncompressed) used in the Fusang system can be downloaded from here. 
+
+### 3. Usage
+*Disclaim: Although we have worked hard to ensure our code are robust, our tool remains a research 
+prototype. It can still have glitches when using in complex, real-life settings. If you discover any bugs, 
+please raise an issue, describing how you ran the program and what problem you encountered. 
+We will get back to you ASAP. Thank you.*
+
+####3.1 Data preprocessing
+* Svmd precessing. The data received by radar is first decomposed by svmd to eliminate the influence of multipath noise.
+```
+# Run the IF_svmd.m in the 01_svmd_precessing.
+```
+* Hrrp generation. After svmd, the hrrp data formant of the target reflected signal is extracted.
+```
+# Run the calculate_Extreme_values.m in the 02_hrrp_generation.
+```
+Note: Above steps, Matlab R2021b or later is recommended.
+
+####3.2 Feature extraction
