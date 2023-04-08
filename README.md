@@ -67,7 +67,7 @@ prototype. It can still have glitches when using in complex, real-life settings.
 please raise an issue, describing how you ran the program and what problem you encountered. 
 We will get back to you ASAP. Thank you.*
 
-####3.1 Data preprocessing
+#### 3.1 Data preprocessing
 * Svmd precessing. The data received by radar is first decomposed by svmd to eliminate the influence of multipath noise.
 ```
 # Run the IF_svmd.m in the 01_svmd_precessing.
@@ -78,4 +78,4 @@ We will get back to you ASAP. Thank you.*
 ```
 Note: Above steps, Matlab R2021b or later is recommended.
 
-####3.2 Feature extraction
+#### 3.2 Feature extraction
