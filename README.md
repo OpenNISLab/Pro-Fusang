@@ -125,7 +125,7 @@ of labeled training data.
 The training set and test set are generated separately in the data preprocessing stage of Section 3.1 to ensure that the target 
 to be tested has not been trained in advance.
 
-Gcn model:
+Gcn model.
 ```
 # Run the main file (at the root of the 04_gnns_hrrp)
 cd 04_gnns_hrrp

@@ -56,15 +56,15 @@ def make_bin_tree(extremum, indexs, edges, id, id2extremum):
 """
     Load training data
 """
-data_colm_path = r'G:\Github-Desktop\Pro-Fusang\00_datasets\20230407_hrrp_formants_dataset\generateModel_data\columnNumber\1_0deg'
-data_valu_path = r'G:\Github-Desktop\Pro-Fusang\00_datasets\20230407_hrrp_formants_dataset\generateModel_data\ExtremeValues\1_0deg'
+# data_colm_path = r'G:\Github-Desktop\Pro-Fusang\00_datasets\20230407_hrrp_formants_dataset\generateModel_data\columnNumber\1_0deg'
+# data_valu_path = r'G:\Github-Desktop\Pro-Fusang\00_datasets\20230407_hrrp_formants_dataset\generateModel_data\ExtremeValues\1_0deg'
 
 
 """
     Load test data
 """
-# data_colm_path = r'G:\Github-Desktop\Pro-Fusang\00_datasets\20230407_hrrp_formants_dataset\ztest_system_data\columnNumber\1_0deg'
-# data_valu_path = r'G:\Github-Desktop\Pro-Fusang\00_datasets\20230407_hrrp_formants_dataset\ztest_system_data\ExtremeValues\1_0deg'
+data_colm_path = r'G:\Github-Desktop\Pro-Fusang\00_datasets\20230407_hrrp_formants_dataset\ztest_system_data\columnNumber\1_0deg'
+data_valu_path = r'G:\Github-Desktop\Pro-Fusang\00_datasets\20230407_hrrp_formants_dataset\ztest_system_data\ExtremeValues\1_0deg'
 
 
 """

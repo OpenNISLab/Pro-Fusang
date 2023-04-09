@@ -42,10 +42,8 @@ print(device)
 """
     Model Loading 
 """
-model = torch.load(r"G:\Aurora Projects\Pro-Fusang\Gnns-hrrp\out\TUs_graph_classification\checkpoints\radar-move\静止\518\GCN_Modified_TU_HRRP_GPU0_22h06m31s_on_Dec_07_2022\RUN_0\epoch_725.pkl")
+model = torch.load(r"G:\Github-Desktop\Pro-Fusang\04_gnns_hrrp\out\TUs_graph_classification\checkpoints\20230409\GCN_Modified_TU_HRRP_GPU0_20h58m12s_on_Apr_09_2023\RUN_0\epoch_1028.pkl")
 model = model.to(device)
-# model.load_state_dict(torch.load(r'F:\github-project\Graph-learning\GNNs\benchmarking-gnns-master\benchmarking-gnns-master\out\TUs_graph_classification\checkpoints\20221107\puredata_GCN_Modified_TU_HRRP_GPU0_11h13m41s_on_Nov_08_2022\RUN_9\epoch_599.pkl'))#再加载网络的参数
-# print("load success")
 
 """
     Parameter Setting 
@@ -123,7 +121,7 @@ print(test_acc)
 """
     Saving Data 
 """
-target_pred_filepath = r'G:\Aurora Projects\Pro-Fusang\Gnns-hrrp\Fusang_target_pred\target_pred_HRRP.mat'
+target_pred_filepath = r'G:\Github-Desktop\Pro-Fusang\04_gnns_hrrp\Fusang_target_pred\target_pred_HRRP.mat'
 scio.savemat(target_pred_filepath, dict(target_pred=test_sofxmax))
 
 

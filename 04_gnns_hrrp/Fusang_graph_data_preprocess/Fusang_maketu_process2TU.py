@@ -2,6 +2,7 @@ import json
 import os
 
 save_dir = "G:\Github-Desktop\Pro-Fusang\\04_gnns_hrrp\Modified_TU_HRRP\Modified_TU_HRRP"
+save_dir_2 = "G:\Github-Desktop\Pro-Fusang\\04_gnns_hrrp\Fusang_TU_HRRP\Fusang_TU_HRRP"
 graphs_dir = "graphs"
 
 os.makedirs(save_dir, exist_ok=True)
@@ -57,30 +58,30 @@ for graph_i, graph in enumerate(total_graphs):
 # Load datasets
 ########### Generate hrrp graph training datasets #####################
 #
-with open(os.path.join(save_dir, "Modified_TU_HRRP_A.txt"), "w") as f:
-    for edge in ds_a:
-        f.write("%d, %d\n" % (edge[0], edge[1]))
-with open(os.path.join(save_dir, "Modified_TU_HRRP_graph_indicator.txt"), "w") as f:
-    for graph_id in ds_graph_indicator:
-        f.write("%d\n" % (graph_id))
-with open(os.path.join(save_dir, "Modified_TU_HRRP_graph_labels.txt"), "w") as f:
-    for cls_id in ds_graph_labels:
-        f.write("%d\n" % (cls_id))
-with open(os.path.join(save_dir, "Modified_TU_HRRP_node_labels.txt"), "w") as f:
-    for value in ds_node_attributes:
-        f.write("%d\n" % (value))
+# with open(os.path.join(save_dir, "Modified_TU_HRRP_A.txt"), "w") as f:
+#     for edge in ds_a:
+#         f.write("%d, %d\n" % (edge[0], edge[1]))
+# with open(os.path.join(save_dir, "Modified_TU_HRRP_graph_indicator.txt"), "w") as f:
+#     for graph_id in ds_graph_indicator:
+#         f.write("%d\n" % (graph_id))
+# with open(os.path.join(save_dir, "Modified_TU_HRRP_graph_labels.txt"), "w") as f:
+#     for cls_id in ds_graph_labels:
+#         f.write("%d\n" % (cls_id))
+# with open(os.path.join(save_dir, "Modified_TU_HRRP_node_labels.txt"), "w") as f:
+#     for value in ds_node_attributes:
+#         f.write("%d\n" % (value))
 
 ################## Generate hrrp graph testing datasets #####################
 
-# with open(os.path.join(save_dir, "G:\Aurora Projects\Pro-Fusang\Gnns-hrrp\Fusang_TU_HRRP\Fusang_TU_HRRP\Fusang_TU_HRRP_A.txt"), "w") as f:
-#     for edge in ds_a:
-#         f.write("%d, %d\n" % (edge[0], edge[1]))
-# with open(os.path.join(save_dir, "G:\Aurora Projects\Pro-Fusang\Gnns-hrrp\Fusang_TU_HRRP\Fusang_TU_HRRP\Fusang_TU_HRRP_graph_indicator.txt"), "w") as f:
-#     for graph_id in ds_graph_indicator:
-#         f.write("%d\n" % (graph_id))
-# with open(os.path.join(save_dir, "G:\Aurora Projects\Pro-Fusang\Gnns-hrrp\Fusang_TU_HRRP\Fusang_TU_HRRP\Fusang_TU_HRRP_graph_labels.txt"), "w") as f:
-#     for cls_id in ds_graph_labels:
-#         f.write("%d\n" % (cls_id))
-# with open(os.path.join(save_dir, "G:\Aurora Projects\Pro-Fusang\Gnns-hrrp\Fusang_TU_HRRP\Fusang_TU_HRRP\Fusang_TU_HRRP_node_labels.txt"), "w") as f:
-#     for value in ds_node_attributes:
-#         f.write("%d\n" % (value))
+with open(os.path.join(save_dir_2, "Fusang_TU_HRRP_A.txt"), "w") as f:
+    for edge in ds_a:
+        f.write("%d, %d\n" % (edge[0], edge[1]))
+with open(os.path.join(save_dir_2, "Fusang_TU_HRRP_graph_indicator.txt"), "w") as f:
+    for graph_id in ds_graph_indicator:
+        f.write("%d\n" % (graph_id))
+with open(os.path.join(save_dir_2, "Fusang_TU_HRRP_graph_labels.txt"), "w") as f:
+    for cls_id in ds_graph_labels:
+        f.write("%d\n" % (cls_id))
+with open(os.path.join(save_dir_2, "Fusang_TU_HRRP_node_labels.txt"), "w") as f:
+    for value in ds_node_attributes:
+        f.write("%d\n" % (value))
