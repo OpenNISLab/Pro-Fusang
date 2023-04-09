@@ -58,11 +58,11 @@ We train and test Fusang with real data collected from our Ti-IWR1843 millimeter
 We pick 24 objects that are most frequently seen in the indoor environment (including multiple materials, 
 curvatures and sizes) to evaluate the performance of Fusang, especially in offices and houses.
 For each object, we rotate each object and collect the reflected signals at 9 angles (From
-0-180 degrees, 20 degrees at per time) spanning distances of 1-5m.
-The total datasets (94.5GB uncompressed) used in the Fusang system can be downloaded from
-[here](https://1drv.ms/u/s!AuVCef5KAvp_gQf8LDiXAiQEQ_dZ?e=vMbTm9 "All raw data"). 
+0-180 degrees, 20 degrees at per time) spanning distances of 1-5m. 
 For the sake of reproducibility of our paper's results, we have also shared preprocessed radar datasets on GitHub, 
 named as *00_datasets*, to replicate the results of Section 5.1 of the paper.
+The total datasets (94.5GB uncompressed) used in the Fusang system can be downloaded from
+[here](https://1drv.ms/u/s!AuVCef5KAvp_gQf8LDiXAiQEQ_dZ?e=vMbTm9 "All raw data").
 
 ### 3. Step-by-Step Instructions
 *Disclaim: Although we have worked hard to ensure our code are robust, our tool remains a research 
