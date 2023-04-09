@@ -70,11 +70,11 @@ We will get back to you ASAP. Thank you.*
 #### 3.1 Data preprocessing
 * Svmd precessing. The data received by radar is first decomposed by svmd to eliminate the influence of multipath noise.
 ```
-# Run the IF_svmd.m in the 01_svmd_precessing.
+# Run the IF_svmd.m in the 01_svmd_precessing
 ```
 * Hrrp generation. The hrrp formants of the target reflected signal is extracted.
 ```
-# Run the calculate_Extreme_values.m in the 02_hrrp_generation.
+# Run the calculate_Extreme_values.m in the 02_hrrp_generation
 ```
 Note: Above steps, Matlab R2021b or later is recommended.
 
@@ -83,13 +83,62 @@ After the filtered radar signal is obtained, the system extracts the energy dist
 radar echo in IQ domain and Hrrp respectively.
 * *Leaves* feature. It's used to represent the energy distribution of target curvature in IQ domain.
 ```
-# Run the data_preprocessed.m in the 03_curvature_extraction.
+# Run the data_preprocessed.m in the 03_curvature_extraction
 ```
 * *Branches* feature. It's used to represent the energy distribution of two-dimensional target profiles in hrrp data.
 ```
-# Construct the binary tree feature based on hrrp.
+# Construct the graph feature based on hrrp
 cd 04_gnns_hrrp/Fusang_graph_data_preprocess
 python Fusang_maketree_process_4.0.py
 python Fusang_maketu_process2TU.py
 ```
 Note: The preprocessed data path in Section 3.1 needs to be provided with the above code.
+
+#### 3.3 Training model
+For Gcn model:
+```
+# Run the main file (at the root of the 04_gnns_hrrp)
+cd 04_gnns_hrrp
+python main_Fusang_profile_classification_train.py --config 'configs/TUs_graph_classification_GCN_HRRP_train.json' # for CPU
+python main_Fusang_profile_classification_train.py --gpu_id 0 --config 'configs/TUs_graph_classification_GCN_HRRP_train.json' # for GPU
+```
+The training and network parameters for each dataset and network is stored in a json file in the `configs/` directory.
+
+For LSTM model:
+```
+# Run the main file (at the root of the 05_rnns_iq)
+cd 05_rnns_iq
+python main_Fusang_curvature_classification_train.py 
+```
+
+For fusion model: At this stage, the confidence threshold of fusion module is determined by a large number 
+of labeled training data.
+```
+# Run the System_test.m in the root of the 06_fusion_model
+```
+
+
+#### 3.4 Testing
+The training set and test set are generated separately in the data preprocessing stage of Section 3.1 to ensure that the target 
+to be tested has not been trained in advance.
+
+For Gcn model:
+```
+# Run the main file (at the root of the 04_gnns_hrrp)
+cd 04_gnns_hrrp
+python main_Fusang_profile_classification_test.py --config 'configs/TUs_graph_classification_GCN_HRRP_test.json' # for CPU
+python main_Fusang_profile_classification_test.py --gpu_id 0 --config 'configs/TUs_graph_classification_GCN_HRRP_test.json' # for GPU
+```
+
+For LSTM model:
+```
+# Run the main file (at the root of the 05_rnns_iq)
+cd 05_rnns_iq
+python main_Fusang_curvature_classification_test.py 
+```
+
+For fusion model: At this stage, the confidence threshold will be fixed and obtained through 
+a large number of training experiments in the previous stage.
+```
+# Run the System_test.m in the root of the 06_fusion_model
+```
