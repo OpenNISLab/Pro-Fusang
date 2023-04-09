@@ -79,7 +79,7 @@ We will get back to you ASAP. Thank you.*
 ```
 # Run the calculate_Extreme_values.m in the 02_hrrp_generation
 ```
-Note: Above steps, Matlab R2021b or later is recommended.
+**Note**: Above steps, Matlab R2021b or later is recommended.
 
 #### 3.2 Feature extraction
 After the filtered radar signal is obtained, the system extracts the energy distribution of target 
@@ -95,10 +95,10 @@ cd 04_gnns_hrrp/Fusang_graph_data_preprocess
 python Fusang_maketree_process_4.0.py
 python Fusang_maketu_process2TU.py
 ```
-Note: The preprocessed data path in Section 3.1 needs to be provided with the above code.
+**Note**: The preprocessed data path in Section 3.1 needs to be provided with the above code.
 
 #### 3.3 Training model
-Gcn model.
+&#9733; Gcn model.
 ```
 # Run the main file (at the root of the 04_gnns_hrrp)
 cd 04_gnns_hrrp
@@ -107,14 +107,14 @@ python main_Fusang_profile_classification_train.py --gpu_id 0 --config 'configs/
 ```
 The training and network parameters for each dataset and network is stored in a json file in the `configs/` directory.
 
-LSTM model.
+&#9733; LSTM model.
 ```
 # Run the main file (at the root of the 05_rnns_iq)
 cd 05_rnns_iq
 python main_Fusang_curvature_classification_train.py 
 ```
 
-Fusion model. At this stage, the confidence threshold of fusion module is determined by a large number 
+&#9733; Fusion model. At this stage, the confidence threshold of fusion module is determined by a large number 
 of labeled training data.
 ```
 # Run the System_test.m in the root of the 06_fusion_model
@@ -125,7 +125,7 @@ of labeled training data.
 The training set and test set are generated separately in the data preprocessing stage of Section 3.1 to ensure that the target 
 to be tested has not been trained in advance.
 
-Gcn model.
+&#9733; Gcn model.
 ```
 # Run the main file (at the root of the 04_gnns_hrrp)
 cd 04_gnns_hrrp
@@ -133,14 +133,14 @@ python main_Fusang_profile_classification_test.py --config 'configs/TUs_graph_cl
 python main_Fusang_profile_classification_test.py --gpu_id 0 --config 'configs/TUs_graph_classification_GCN_HRRP_test.json' # for GPU
 ```
 
-LSTM model.
+&#9733; LSTM model.
 ```
 # Run the main file (at the root of the 05_rnns_iq)
 cd 05_rnns_iq
 python main_Fusang_curvature_classification_test.py 
 ```
 
-Fusion model. At this stage, the confidence threshold will be fixed and obtained through 
+&#9733; Fusion model. At this stage, the confidence threshold will be fixed and obtained through 
 a large number of training experiments in the previous stage.
 ```
 # Run the System_test.m in the root of the 06_fusion_model
