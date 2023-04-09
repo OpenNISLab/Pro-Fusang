@@ -59,7 +59,10 @@ We pick 24 objects that are most frequently seen in the indoor environment (incl
 curvatures and sizes) to evaluate the performance of Fusang, especially in offices and houses.
 For each object, we rotate each object and collect the reflected signals at 9 angles (From
 0-180 degrees, 20 degrees at per time) spanning distances of 1-5m.
-The total datasets (94.5GB uncompressed) used in the Fusang system can be downloaded from here. 
+The total datasets (94.5GB uncompressed) used in the Fusang system can be downloaded from
+[here](https://1drv.ms/u/s!AuVCef5KAvp_gQf8LDiXAiQEQ_dZ?e=vMbTm9 "All raw data"). 
+For the sake of reproducibility of our paper's results, we have also shared preprocessed radar datasets on GitHub, 
+named as *00_datasets*, to replicate the results of Section 5.1 of the paper.
 
 ### 3. Step-by-Step Instructions
 *Disclaim: Although we have worked hard to ensure our code are robust, our tool remains a research 
@@ -95,7 +98,7 @@ python Fusang_maketu_process2TU.py
 Note: The preprocessed data path in Section 3.1 needs to be provided with the above code.
 
 #### 3.3 Training model
-For Gcn model:
+Gcn model.
 ```
 # Run the main file (at the root of the 04_gnns_hrrp)
 cd 04_gnns_hrrp
@@ -104,14 +107,14 @@ python main_Fusang_profile_classification_train.py --gpu_id 0 --config 'configs/
 ```
 The training and network parameters for each dataset and network is stored in a json file in the `configs/` directory.
 
-For LSTM model:
+LSTM model.
 ```
 # Run the main file (at the root of the 05_rnns_iq)
 cd 05_rnns_iq
 python main_Fusang_curvature_classification_train.py 
 ```
 
-For fusion model: At this stage, the confidence threshold of fusion module is determined by a large number 
+Fusion model. At this stage, the confidence threshold of fusion module is determined by a large number 
 of labeled training data.
 ```
 # Run the System_test.m in the root of the 06_fusion_model
@@ -122,7 +125,7 @@ of labeled training data.
 The training set and test set are generated separately in the data preprocessing stage of Section 3.1 to ensure that the target 
 to be tested has not been trained in advance.
 
-For Gcn model:
+Gcn model:
 ```
 # Run the main file (at the root of the 04_gnns_hrrp)
 cd 04_gnns_hrrp
@@ -130,14 +133,14 @@ python main_Fusang_profile_classification_test.py --config 'configs/TUs_graph_cl
 python main_Fusang_profile_classification_test.py --gpu_id 0 --config 'configs/TUs_graph_classification_GCN_HRRP_test.json' # for GPU
 ```
 
-For LSTM model:
+LSTM model.
 ```
 # Run the main file (at the root of the 05_rnns_iq)
 cd 05_rnns_iq
 python main_Fusang_curvature_classification_test.py 
 ```
 
-For fusion model: At this stage, the confidence threshold will be fixed and obtained through 
+Fusion model. At this stage, the confidence threshold will be fixed and obtained through 
 a large number of training experiments in the previous stage.
 ```
 # Run the System_test.m in the root of the 06_fusion_model
