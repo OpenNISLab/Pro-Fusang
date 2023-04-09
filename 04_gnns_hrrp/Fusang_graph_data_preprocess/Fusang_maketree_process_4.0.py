@@ -56,21 +56,15 @@ def make_bin_tree(extremum, indexs, edges, id, id2extremum):
 """
     Load training data
 """
-# data_colm_path = r'F:\github-project\Graph-learning\GNNs\benchmarking-gnns-master\benchmarking-gnns-master\graph_data_preprocess\Pending data\20221128_svmd_systemData_3\generateModel_data\columnNumber\1_0deg'
-# data_valu_path = r'F:\github-project\Graph-learning\GNNs\benchmarking-gnns-master\benchmarking-gnns-master\graph_data_preprocess\Pending data\20221128_svmd_systemData_3\generateModel_data\ExtremeValues\1_0deg'
+data_colm_path = r'G:\Github-Desktop\Pro-Fusang\00_datasets\20230407_hrrp_formants_dataset\generateModel_data\columnNumber\1_0deg'
+data_valu_path = r'G:\Github-Desktop\Pro-Fusang\00_datasets\20230407_hrrp_formants_dataset\generateModel_data\ExtremeValues\1_0deg'
 
 
 """
     Load test data
 """
-data_colm_path = r'F:\github-project\Graph-learning\GNNs\benchmarking-gnns-master\benchmarking-gnns-master\graph_data_preprocess\Pending data\20221128_svmd_systemData_3\ztest_system_data\columnNumber\1_0deg'
-data_valu_path = r'F:\github-project\Graph-learning\GNNs\benchmarking-gnns-master\benchmarking-gnns-master\graph_data_preprocess\Pending data\20221128_svmd_systemData_3\ztest_system_data\ExtremeValues\1_0deg'
-
-# data_colm_path = r'F:\github-project\Graph-learning\GNNs\benchmarking-gnns-master\benchmarking-gnns-master\graph_data_preprocess\Pending data\radarMove_svmd_test_system_data_1\ztest_system_data\columnNumber\1_0deg'
-# data_valu_path = r'F:\github-project\Graph-learning\GNNs\benchmarking-gnns-master\benchmarking-gnns-master\graph_data_preprocess\Pending data\radarMove_svmd_test_system_data_1\ztest_system_data\ExtremeValues\1_0deg'
-#
-# data_colm_path = r'F:\github-project\Graph-learning\GNNs\benchmarking-gnns-master\benchmarking-gnns-master\graph_data_preprocess\3.0\a-outliers-mutipath\vmd\colm'
-# data_valu_path = r'F:\github-project\Graph-learning\GNNs\benchmarking-gnns-master\benchmarking-gnns-master\graph_data_preprocess\3.0\a-outliers-mutipath\vmd\value'
+# data_colm_path = r'G:\Github-Desktop\Pro-Fusang\00_datasets\20230407_hrrp_formants_dataset\ztest_system_data\columnNumber\1_0deg'
+# data_valu_path = r'G:\Github-Desktop\Pro-Fusang\00_datasets\20230407_hrrp_formants_dataset\ztest_system_data\ExtremeValues\1_0deg'
 
 
 """

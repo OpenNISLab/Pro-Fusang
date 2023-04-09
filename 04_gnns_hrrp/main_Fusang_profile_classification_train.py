@@ -200,8 +200,7 @@ def train_val_pipeline(MODEL_NAME, DATASET_NAME, params, net_params, dirs):
                     ckpt_dir = os.path.join(root_ckpt_dir, "RUN_" + str(split_number))
                     if not os.path.exists(ckpt_dir):
                         os.makedirs(ckpt_dir)
-                    # torch.save(model.state_dict(), '{}.pkl'.format(ckpt_dir + "/epoch_" + str(epoch))) #只保存模型参数
-                    torch.save(model, '{}.pkl'.format(ckpt_dir + "/epoch_" + str(epoch))) #保存整个模型
+                    torch.save(model, '{}.pkl'.format(ckpt_dir + "/epoch_" + str(epoch))) # Save model
 
                     files = glob.glob(ckpt_dir + '/*.pkl')
                     for file in files:
