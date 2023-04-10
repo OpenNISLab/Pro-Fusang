@@ -29,7 +29,7 @@ ds_graph_labels = []        # The class of current graph
 ds_node_attributes = []     # The properties of the current node
 
 
-Graph_label = [1, 2, 21, 9, 10, 3, 8, 20, 4, 5, 13, 11, 12, 16, 23, 17, 18, 6, 15, 22, 14, 24, 7, 19]  # Graph labels
+Graph_label = [1, 2, 21, 9, 10, 3, 8, 20, 4, 5, 13, 11, 12, 16, 23, 17, 18, 6, 15, 22, 14, 24, 7, 19]  # Graph labels based on the AllThingName_ObjectLabel.xlsx in folder 00
 
 for graph_i, graph in enumerate(total_graphs):
     id2value = graph["id2value"]
@@ -58,30 +58,30 @@ for graph_i, graph in enumerate(total_graphs):
 # Load datasets
 ########### Generate hrrp graph training datasets #####################
 #
-# with open(os.path.join(save_dir, "Modified_TU_HRRP_A.txt"), "w") as f:
-#     for edge in ds_a:
-#         f.write("%d, %d\n" % (edge[0], edge[1]))
-# with open(os.path.join(save_dir, "Modified_TU_HRRP_graph_indicator.txt"), "w") as f:
-#     for graph_id in ds_graph_indicator:
-#         f.write("%d\n" % (graph_id))
-# with open(os.path.join(save_dir, "Modified_TU_HRRP_graph_labels.txt"), "w") as f:
-#     for cls_id in ds_graph_labels:
-#         f.write("%d\n" % (cls_id))
-# with open(os.path.join(save_dir, "Modified_TU_HRRP_node_labels.txt"), "w") as f:
-#     for value in ds_node_attributes:
-#         f.write("%d\n" % (value))
+with open(os.path.join(save_dir, "Modified_TU_HRRP_A.txt"), "w") as f:
+    for edge in ds_a:
+        f.write("%d, %d\n" % (edge[0], edge[1]))
+with open(os.path.join(save_dir, "Modified_TU_HRRP_graph_indicator.txt"), "w") as f:
+    for graph_id in ds_graph_indicator:
+        f.write("%d\n" % (graph_id))
+with open(os.path.join(save_dir, "Modified_TU_HRRP_graph_labels.txt"), "w") as f:
+    for cls_id in ds_graph_labels:
+        f.write("%d\n" % (cls_id))
+with open(os.path.join(save_dir, "Modified_TU_HRRP_node_labels.txt"), "w") as f:
+    for value in ds_node_attributes:
+        f.write("%d\n" % (value))
 
 ################## Generate hrrp graph testing datasets #####################
 
-with open(os.path.join(save_dir_2, "Fusang_TU_HRRP_A.txt"), "w") as f:
-    for edge in ds_a:
-        f.write("%d, %d\n" % (edge[0], edge[1]))
-with open(os.path.join(save_dir_2, "Fusang_TU_HRRP_graph_indicator.txt"), "w") as f:
-    for graph_id in ds_graph_indicator:
-        f.write("%d\n" % (graph_id))
-with open(os.path.join(save_dir_2, "Fusang_TU_HRRP_graph_labels.txt"), "w") as f:
-    for cls_id in ds_graph_labels:
-        f.write("%d\n" % (cls_id))
-with open(os.path.join(save_dir_2, "Fusang_TU_HRRP_node_labels.txt"), "w") as f:
-    for value in ds_node_attributes:
-        f.write("%d\n" % (value))
+# with open(os.path.join(save_dir_2, "Fusang_TU_HRRP_A.txt"), "w") as f:
+#     for edge in ds_a:
+#         f.write("%d, %d\n" % (edge[0], edge[1]))
+# with open(os.path.join(save_dir_2, "Fusang_TU_HRRP_graph_indicator.txt"), "w") as f:
+#     for graph_id in ds_graph_indicator:
+#         f.write("%d\n" % (graph_id))
+# with open(os.path.join(save_dir_2, "Fusang_TU_HRRP_graph_labels.txt"), "w") as f:
+#     for cls_id in ds_graph_labels:
+#         f.write("%d\n" % (cls_id))
+# with open(os.path.join(save_dir_2, "Fusang_TU_HRRP_node_labels.txt"), "w") as f:
+#     for value in ds_node_attributes:
+#         f.write("%d\n" % (value))

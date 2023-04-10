@@ -121,7 +121,7 @@ print(test_acc)
 """
     Saving Data 
 """
-target_pred_filepath = r'G:\Github-Desktop\Pro-Fusang\04_gnns_hrrp\Fusang_target_pred\target_pred_HRRP.mat'
+target_pred_filepath = r'G:\Github-Desktop\Pro-Fusang\04_gnns_hrrp\Fusang_target_pred\target_pred_hrrp.mat'
 scio.savemat(target_pred_filepath, dict(target_pred=test_sofxmax))
 
 
