@@ -1,8 +1,8 @@
 import json
 import os
 
-save_dir = "G:\Github-Desktop\Pro-Fusang\\04_gnns_hrrp\Modified_TU_HRRP\Modified_TU_HRRP"
-save_dir_2 = "G:\Github-Desktop\Pro-Fusang\\04_gnns_hrrp\Fusang_TU_HRRP\Fusang_TU_HRRP"
+save_dir = "Your local path\Pro-Fusang\\04_gnns_hrrp\Modified_TU_HRRP\Modified_TU_HRRP"
+save_dir_2 = "Your local path\Pro-Fusang\\04_gnns_hrrp\Fusang_TU_HRRP\Fusang_TU_HRRP"
 graphs_dir = "graphs"
 
 os.makedirs(save_dir, exist_ok=True)
