@@ -42,7 +42,7 @@ print(device)
 """
     Model Loading 
 """
-model = torch.load(r"G:\Github-Desktop\Pro-Fusang\04_gnns_hrrp\out\TUs_graph_classification\checkpoints\20230409\GCN_Modified_TU_HRRP_GPU0_20h58m12s_on_Apr_09_2023\RUN_0\epoch_1028.pkl")
+model = torch.load(r"G:\Github-Desktop\Pro-Fusang\00_Fusang_dataset\trained_models\epoch_1028.pkl")
 model = model.to(device)
 
 """
@@ -121,7 +121,7 @@ print(test_acc)
 """
     Saving Data 
 """
-target_pred_filepath = r'G:\Github-Desktop\Pro-Fusang\04_gnns_hrrp\Fusang_target_pred\target_pred_hrrp.mat'
+target_pred_filepath = r'G:\Github-Desktop\Pro-Fusang\00_Fusang_dataset\trained_models\model_softmax_matrix\target_pred_hrrp.mat'
 scio.savemat(target_pred_filepath, dict(target_pred=test_sofxmax))
 
 
