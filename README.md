@@ -1,6 +1,6 @@
 # Pro-Fusang
  This repository is an Open-source code for the paper "Graph-inspired Robust and Accurate Object Recognition on Commodity mmWave Devices". 
- 
+
 
 ## Abstract
 >Fusang is a novel object recognition system that only requires a single COTS mmWave Radar. It uses HRRP data and IQ 
@@ -17,37 +17,44 @@ different multipath scenarios. We have implemented a prototype of Fusang on a co
 ## Quick Start
 
 ### 1. Environment installation
+Before you begin the following steps, make sure that you do the following experiment setup:
+
+- Operating system: Win 10 or Ubuntu 18.04 LTS
+- Python 3.7 or higher
+- Matlab R2021b or higher
 
 #### 1.1 Setup Conda
 ```
 # Conda installation
 
 # For Windows
-Download from official website: https://www.anaconda.com/
+$ Download from official website: https://www.anaconda.com/
 
 # For Linux
-curl -o ~/miniconda.sh -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+$ curl -o ~/miniconda.sh -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
 # For OSX
-curl -o ~/miniconda.sh -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+$ curl -o ~/miniconda.sh -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 
-chmod +x ~/miniconda.sh    
-./miniconda.sh  
+$ chmod +x ~/miniconda.sh    
+$ ./miniconda.sh  
 
-source ~/.bashrc          # For Linux
-source ~/.bash_profile    # For OSX
+$ source ~/.bashrc          # For Linux
+$ source ~/.bash_profile    # For OSX
 ```
 
 #### 1.2 Setup Python environment
 ```
 # Clone GitHub repo
-conda install git
-git clone https://github.com/OpenNISLab/Pro-Fusang.git
-cd Pro-Fusang
+$ conda install git
+$ git clone https://github.com/OpenNISLab/Pro-Fusang.git
+$ cd Pro-Fusang
 
 # Install python environment
-cd 04_gnns_hrrp
-conda env create -f environment.yml   
+$ cd 04_gnns_hrrp
+$ conda env create -f environment.yml   
+$ cd 05_rnns_iq
+$ conda env create -f environment.yml 
 
 # Activate environment
 conda activate envs
@@ -59,13 +66,43 @@ We pick 24 objects that are most frequently seen in the indoor environment (incl
 curvatures and sizes) to evaluate the performance of Fusang, especially in offices and houses.
 For each object, we rotate each object and collect the reflected signals at 9 angles (From
 0-180 degrees, 20 degrees at per time) spanning distances of 1-5m. 
-For the sake of reproducibility of our paper's results, we have also shared preprocessed radar datasets on GitHub, 
-named as *00_Fusang_dataset*, to replicate the results of Section 5.1 of the paper.
+To ensure the reproducibility of our paper's results, we have shared 
+[raw data](https://1drv.ms/u/s!AuVCef5KAvp_gQiS0yWWS__2waP6?e=K4nNt3 "Sec.5.1 raw data") 
+and preprocessed dataset on GitHub, named *00_Fusang_dataset*. 
+You can use this data to replicate the results presented in Section 5.1 of our paper.
 The total datasets (94.5GB uncompressed) used in the Fusang system can be downloaded from
 [here](https://1drv.ms/u/s!AuVCef5KAvp_gQf8LDiXAiQEQ_dZ?e=vMbTm9 "All raw data").
 
+```
+# The entire datasets used in our experiment
+All_radar_datasets_Fusang:.
+├─Sec.5.1_Overall_Performance
+│  └─20221119 (raw_radar_dataset.zip)
+├─Sec.5.2_Robustness
+│  ├─Different_Angle
+│  │  └─20221128
+│  ├─Different_Environments
+│  │  ├─20221119
+│  │  ├─20221128
+│  │  └─20221130
+│  └─Distances
+│      ├─20221122
+│      ├─20221125
+│      ├─20221126
+│      ├─20221127
+│      └─20221128
+└─Sec.5.3_Dynamic_Case_Study
+    └─20221204
+        ├─Moving_cart
+        └─Moving_hand
+```
+
 ### 3. Step-by-Step Instructions
-*Disclaim: Although we have worked hard to ensure our code are robust, our tool remains a research 
+*Disclaim:\
+(1) Due to the project intermediate data more. Please note the data path switching when using part of the code.
+At the same time, we are currently working on updating our code to reduce the manual data path modification process.
+
+(2) Although we have worked hard to ensure our code are robust, our tool remains a research 
 prototype. It can still have glitches when using in complex, real-life settings. If you discover any bugs, 
 please raise an issue, describing how you ran the program and what problem you encountered. 
 We will get back to you ASAP. Thank you.*
@@ -77,23 +114,24 @@ We will get back to you ASAP. Thank you.*
 ```
 * Hrrp generation. The hrrp formants of the target reflected signal is extracted.
 ```
-# Run the calculate_Extreme_values.m in the 02_hrrp_generation
+# Run the calculate_Extreme_values.m in the 02_hrrp_generation/Adaptive threshold Method1
 ```
-**Note**: Above steps, Matlab R2021b or later is recommended.
+**Note**: Adaptive threshold method 1 and 2 can be used without essential difference, and the processing results are similar.
 
 #### 3.2 Feature extraction
 After the filtered radar signal is obtained, the system extracts the energy distribution of target 
 radar echo in IQ domain and Hrrp respectively.
 * *Leaves* feature. It's used to represent the energy distribution of target curvature in IQ domain.
 ```
+# Run the IF_IQdomain_calculate_Point_density.m in the 03_curvature_extraction
 # Run the data_preprocessed.m in the 03_curvature_extraction
 ```
 * *Branches* feature. It's used to represent the energy distribution of two-dimensional target profiles in hrrp data.
 ```
 # Construct the graph feature based on hrrp
-cd 04_gnns_hrrp/Fusang_graph_data_preprocess
-python Fusang_maketree_process_4.0.py
-python Fusang_maketu_process2TU.py
+$ cd 04_gnns_hrrp/Fusang_graph_data_preprocess
+$ python Fusang_maketree_process_4.0.py
+$ python Fusang_maketu_process2TU.py
 ```
 **Note**: The preprocessed data path in Section 3.1 needs to be provided with the above code.
 
@@ -101,23 +139,27 @@ python Fusang_maketu_process2TU.py
 &#9733; Gcn model.
 ```
 # Run the main file (at the root of the 04_gnns_hrrp)
-cd 04_gnns_hrrp
-python main_Fusang_profile_classification_train.py --config 'configs/TUs_graph_classification_GCN_HRRP_train.json' # for CPU
-python main_Fusang_profile_classification_train.py --gpu_id 0 --config 'configs/TUs_graph_classification_GCN_HRRP_train.json' # for GPU
+$ cd 04_gnns_hrrp
+$ python main_Fusang_profile_classification_train.py --config 'configs/TUs_graph_classification_GCN_HRRP_train.json' # for CPU
+$ python main_Fusang_profile_classification_train.py --gpu_id 0 --config 'configs/TUs_graph_classification_GCN_HRRP_train.json' # for GPU
 ```
 The training and network parameters for each dataset and network is stored in a json file in the `configs/` directory.
 
 &#9733; LSTM model.
 ```
 # Run the main file (at the root of the 05_rnns_iq)
-cd 05_rnns_iq
-python main_Fusang_curvature_classification_train.py 
+$ cd 05_rnns_iq
+$ python main_Fusang_curvature_classification_train.py 
 ```
 
-&#9733; Fusion model. At this stage, the confidence threshold of fusion module is determined by a large number 
+&#9733; Fusion model. 
+In this stage, we set two thresholds *(Absolutely_right_threshold_value* and *Be_about_right_threshold_value)* artificially 
+to adjust the output weights of the hybrid modelnetwork, and the determination of the thresholds depends on a large number 
 of labeled training data.
+After conducting numerous tests, we found that two values in the experiment remain relatively stable. However, if you wish
+to use our system to recognize your own dataset, it may be necessary to retrain the threshold parameters.
 ```
-# Run the System_test.m in the root of the 06_fusion_model
+# Iteratively search thresholds within [0, 1] until the system achieves maximum accuracy.
 ```
 
 
@@ -128,16 +170,16 @@ to be tested has not been trained in advance.
 &#9733; Gcn model.
 ```
 # Run the main file (at the root of the 04_gnns_hrrp)
-cd 04_gnns_hrrp
-python main_Fusang_profile_classification_test.py --config 'configs/TUs_graph_classification_GCN_HRRP_test.json' # for CPU
-python main_Fusang_profile_classification_test.py --gpu_id 0 --config 'configs/TUs_graph_classification_GCN_HRRP_test.json' # for GPU
+$ cd 04_gnns_hrrp
+$ python main_Fusang_profile_classification_test.py --config 'configs/TUs_graph_classification_GCN_HRRP_test.json' # for CPU
+$ python main_Fusang_profile_classification_test.py --gpu_id 0 --config 'configs/TUs_graph_classification_GCN_HRRP_test.json' # for GPU
 ```
 
 &#9733; LSTM model.
 ```
 # Run the main file (at the root of the 05_rnns_iq)
-cd 05_rnns_iq
-python main_Fusang_curvature_classification_test.py 
+$ cd 05_rnns_iq
+$ python main_Fusang_curvature_classification_test.py 
 ```
 
 &#9733; Fusion model. At this stage, the confidence threshold will be fixed and obtained through 
