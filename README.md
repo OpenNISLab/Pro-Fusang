@@ -162,7 +162,6 @@ to use our system to recognize your own dataset, it may be necessary to retrain 
 # Iteratively search thresholds within [0, 1] until the system achieves maximum accuracy.
 ```
 
-
 #### 3.4 Testing
 The training set and test set are generated separately in the data preprocessing stage of Section 3.1 to ensure that the target 
 to be tested has not been trained in advance.
