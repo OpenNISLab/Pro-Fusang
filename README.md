@@ -1,5 +1,5 @@
 # Pro-Fusang
- This repository is an Open-source code for the paper "Graph-inspired Robust and Accurate Object Recognition on Commodity mmWave Devices". 
+ This repository is an Open-source code for the paper "Fusang: Graph-inspired Robust and Accurate Object Recognition on Commodity mmWave Devices". 
 
 
 ## Abstract
@@ -19,8 +19,7 @@ different multipath scenarios. We have implemented a prototype of Fusang on a co
 ### 1. Environment installation
 Before you begin the following steps, make sure that you do the following experiment setup:
 
-- Operating system: Win 10 or Ubuntu 18.04 LTS
-- Python 3.7 or higher
+- Operating system: Windows 10
 - Matlab R2021b or higher
 
 #### 1.1 Setup Conda
@@ -29,18 +28,6 @@ Before you begin the following steps, make sure that you do the following experi
 
 # For Windows
 $ Download from official website: https://www.anaconda.com/
-
-# For Linux
-$ curl -o ~/miniconda.sh -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-
-# For OSX
-$ curl -o ~/miniconda.sh -O https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-
-$ chmod +x ~/miniconda.sh    
-$ ./miniconda.sh  
-
-$ source ~/.bashrc          # For Linux
-$ source ~/.bash_profile    # For OSX
 ```
 
 #### 1.2 Setup Python environment
@@ -75,37 +62,35 @@ The total datasets (94.5GB uncompressed) used in the Fusang system can be downlo
 
 ```
 # The entire datasets used in our experiment
-All_radar_datasets_Fusang:.
+All_radar_datasets_Fusang:
 ├─Sec.5.1_Overall_Performance
 │  └─20221119 (raw_radar_dataset.zip)
 ├─Sec.5.2_Robustness
 │  ├─Different_Angle
 │  │  └─20221128
 │  ├─Different_Environments
-│  │  ├─20221119
-│  │  ├─20221128
-│  │  └─20221130
+│  │  ├─20221119 (Seminar)
+│  │  ├─20221128 (Office)
+│  │  └─20221130 (Hall)
 │  └─Distances
-│      ├─20221122
-│      ├─20221125
-│      ├─20221126
-│      ├─20221127
-│      └─20221128
+│      ├─20221122 (5m)
+│      ├─20221125 (4m)
+│      ├─20221126 (3m)
+│      ├─20221127 (2m)
+│      └─20221128 (1m)
 └─Sec.5.3_Dynamic_Case_Study
     └─20221204
-        ├─Moving_cart
-        └─Moving_hand
+        ├─Moving_cart (Office)
+        └─Moving_hand (Office)
 ```
 
 ### 3. Step-by-Step Instructions
-*Disclaim:\
-(1) Due to the project intermediate data more. Please note the data path switching when using part of the code.
-At the same time, we are currently working on updating our code to reduce the manual data path modification process.
-
+*Disclaim: (1) Due to the project intermediate data more. Please note the data path switching when using part of the code.
+At the same time, we are currently working on updating our code to reduce the manual data path modification process.\
 (2) Although we have worked hard to ensure our code are robust, our tool remains a research 
 prototype. It can still have glitches when using in complex, real-life settings. If you discover any bugs, 
 please raise an issue, describing how you ran the program and what problem you encountered. 
-We will get back to you ASAP. Thank you.*
+We will get back to you ASAP. Thank you.* 
 
 #### 3.1 Data preprocessing
 * Svmd precessing. The data received by radar is first decomposed by svmd to eliminate the influence of multipath noise.
@@ -117,6 +102,8 @@ We will get back to you ASAP. Thank you.*
 # Run the calculate_Extreme_values.m in the 02_hrrp_generation/Adaptive threshold Method1
 ```
 **Note**: Adaptive threshold method 1 and 2 can be used without essential difference, and the processing results are similar.
+Of course, we also provide the processed data stored in folder 00_Fusang_dataset/svmd_filtered_dataset. You can directly 
+use this data for further operations or verify the transparency of the data preprocessing code.
 
 #### 3.2 Feature extraction
 After the filtered radar signal is obtained, the system extracts the energy distribution of target 
