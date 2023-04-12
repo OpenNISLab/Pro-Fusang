@@ -152,7 +152,7 @@ $ cd 05_rnns_iq
 $ python main_Fusang_curvature_classification_train.py 
 ```
 
-&#9733; Fusion model. 
+&#9733; Fusion model.\
 In this stage, we set two thresholds *(Absolutely_right_threshold_value* and *Be_about_right_threshold_value)* artificially 
 to adjust the output weights of the hybrid modelnetwork, and the determination of the thresholds depends on a large number 
 of labeled training data.
@@ -182,7 +182,8 @@ $ cd 05_rnns_iq
 $ python main_Fusang_curvature_classification_test.py 
 ```
 
-&#9733; Fusion model. At this stage, the confidence threshold will be fixed and obtained through 
+&#9733; Fusion model.\
+At this stage, the confidence threshold will be fixed and obtained through 
 a large number of training experiments in the previous stage.
 ```
 # Run the System_test.m in the root of the 06_fusion_model
