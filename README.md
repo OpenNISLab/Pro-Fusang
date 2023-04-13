@@ -93,6 +93,8 @@ please raise an issue, describing how you ran the program and what problem you e
 We will get back to you ASAP. Thank you.* 
 
 #### 3.1 Data preprocessing
+*(approximate runtime: ~0.6s per signal, ~16 hours in total when using a CPU)*
+
 * Svmd precessing. The data received by radar is first decomposed by svmd to eliminate the influence of multipath noise.
 ```
 # Run the IF_svmd.m in the 01_svmd_precessing
@@ -106,6 +108,8 @@ Of course, we also provide the processed data stored in folder 00_Fusang_dataset
 use this data for further operations or verify the transparency of the data preprocessing code.
 
 #### 3.2 Feature extraction
+*(approximate runtime: ~10 minutes when using a CPU)*
+
 After the filtered radar signal is obtained, the system extracts the energy distribution of target 
 radar echo in IQ domain and Hrrp respectively.
 * *Leaves* feature. It's used to represent the energy distribution of target curvature in IQ domain.
@@ -123,6 +127,8 @@ $ python Fusang_maketu_process2TU.py
 **Note**: The preprocessed data path in Section 3.1 needs to be provided with the above code.
 
 #### 3.3 Training model
+*(approximate runtime: ~4 hour using a GPU， 20 hours using a CPU)*
+
 &#9733; Gcn model.
 ```
 # Run the main file (at the root of the 04_gnns_hrrp)
@@ -150,6 +156,8 @@ to use our system to recognize your own dataset, it may be necessary to retrain 
 ```
 
 #### 3.4 Testing
+*(approximate runtime: ~10 minutes)*
+
 The training set and test set are generated separately in the data preprocessing stage of Section 3.1 to ensure that the target 
 to be tested has not been trained in advance.
 
