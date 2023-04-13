@@ -186,3 +186,7 @@ The final system recognition results will be saved in folder `00_Fusang_dataset/
 Folder `00_Fusang_dataset
 /object_information` contains the ground truth of the objects.
 
+
+### Contributors
+
+[@Guorong-He](https://github.com/RichardLitt).
