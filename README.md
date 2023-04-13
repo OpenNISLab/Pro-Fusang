@@ -55,7 +55,7 @@ For each object, we rotate each object and collect the reflected signals at 9 an
 0-180 degrees, 20 degrees at per time) spanning distances of 1-5m. 
 To ensure the reproducibility of our paper's results, we have shared 
 [raw data](https://1drv.ms/u/s!AuVCef5KAvp_gQiS0yWWS__2waP6?e=K4nNt3 "Sec.5.1 raw data") 
-and preprocessed dataset on GitHub, named *00_Fusang_dataset*. 
+and preprocessed dataset on GitHub, named `00_Fusang_dataset`. 
 You can use this data to replicate the results presented in Section 5.1 of our paper.
 The total datasets (94.5GB uncompressed) used in the Fusang system can be downloaded from
 [here](https://1drv.ms/u/s!AuVCef5KAvp_gQf8LDiXAiQEQ_dZ?e=vMbTm9 "All raw data").
@@ -104,7 +104,7 @@ We will get back to you ASAP. Thank you.*
 # Run the calculate_Extreme_values.m in the 02_hrrp_generation/Adaptive threshold Method1
 ```
 **Note**: Adaptive threshold method 1 and 2 can be used without essential difference, and the processing results are similar.
-Of course, we also provide the processed data stored in folder 00_Fusang_dataset/svmd_filtered_dataset. You can directly 
+Of course, we also provide the processed data stored in folder `00_Fusang_dataset/svmd_filtered_dataset`. You can directly 
 use this data for further operations or verify the transparency of the data preprocessing code.
 
 #### 3.2 Feature extraction
@@ -182,3 +182,7 @@ a large number of training experiments in the previous stage.
 ```
 # Run the System_test.m in the root of the 06_fusion_model
 ```
+The final system recognition results will be saved in folder `00_Fusang_dataset/system result`.
+Folder `00_Fusang_dataset
+/object_information` contains the ground truth of the objects.
+
