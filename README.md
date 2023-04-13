@@ -127,7 +127,7 @@ $ python Fusang_maketu_process2TU.py
 **Note**: The preprocessed data path in Section 3.1 needs to be provided with the above code.
 
 #### 3.3 Training model
-*(approximate runtime: ~4 hour using a GPU， 20 hours using a CPU)*
+*(approximate runtime: ~5 hour using a GPU， 25 hours using a CPU)*
 
 &#9733; Gcn model.
 ```
