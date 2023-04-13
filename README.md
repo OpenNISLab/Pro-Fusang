@@ -189,4 +189,5 @@ Folder `00_Fusang_dataset
 
 ### Contributors
 
-[@Guorong-He](https://github.com/RichardLitt).
+[@Guorong-He](https://github.com/Guorong-He).
+[@sevenqi7-coder](https://github.com/sevenqi7-coder).
