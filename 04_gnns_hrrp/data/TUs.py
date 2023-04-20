@@ -40,7 +40,6 @@ def get_all_split_idx(dataset):
         print("[!] Splitting the data into train/val/test ...")
         
         # Using 10-fold cross val to compare with benchmark papers
-        # 分割数据集，默认是10
         k_splits = 10
 
         cross_val_fold = StratifiedKFold(n_splits=k_splits, shuffle=True)
