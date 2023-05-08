@@ -38,13 +38,18 @@ $ git clone https://github.com/OpenNISLab/Pro-Fusang.git
 $ cd Pro-Fusang
 
 # Install python environment
+# (1) First, install the Gnn environment
 $ cd 04_gnns_hrrp
 $ conda env create -f environment.yaml   
+
+# (2) Next, install the Rnn environment, 
+Please note that you need to deactivate the activated Gnns environment first, 
+otherwise the dependencies of the two environments may conflict and cause the environment creation to fail.
+$ conda deactivate
+$ cd ..
 $ cd 05_rnns_iq
 $ conda env create -f environment.yaml 
 
-# Activate environment
-conda activate envs
 ```
 
 ### 2. Download datasets 
@@ -134,6 +139,8 @@ $ python Fusang_maketu_process2TU.py
 
 &#9733; Gcn model.
 ```
+# Activate environment
+$ conda activate Gnns
 # Run the main file (at the root of the 04_gnns_hrrp)
 $ cd 04_gnns_hrrp
 $ python main_Fusang_profile_classification_train.py --config 'configs/TUs_graph_classification_GCN_HRRP_train.json' # for CPU
@@ -143,6 +150,8 @@ The training and network parameters for each dataset and network is stored in a 
 
 &#9733; LSTM model.
 ```
+# Activate environment
+$ conda activate Rnns
 # Run the main file (at the root of the 05_rnns_iq)
 $ cd 05_rnns_iq
 $ python main_Fusang_curvature_classification_train.py 
@@ -166,6 +175,8 @@ to be tested has not been trained in advance.
 
 &#9733; Gcn model.
 ```
+# Activate environment
+$ conda activate Gnns
 # Run the main file (at the root of the 04_gnns_hrrp)
 $ cd 04_gnns_hrrp
 $ python main_Fusang_profile_classification_test.py --config 'configs/TUs_graph_classification_GCN_HRRP_test.json' # for CPU
@@ -174,6 +185,8 @@ $ python main_Fusang_profile_classification_test.py --gpu_id 0 --config 'configs
 
 &#9733; LSTM model.
 ```
+# Activate environment
+$ conda activate Rnns
 # Run the main file (at the root of the 05_rnns_iq)
 $ cd 05_rnns_iq
 $ python main_Fusang_curvature_classification_test.py 

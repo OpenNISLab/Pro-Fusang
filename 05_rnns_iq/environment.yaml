@@ -1,4 +1,4 @@
-name: TKGPU_test
+name: Rnns
 channels:
   - https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/
   - https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/
@@ -124,4 +124,4 @@ dependencies:
     - werkzeug==2.0.1
     - wrapt==1.12.1
     - zipp==3.5.0
-prefix: D:\Anaconda\envs\TKGPU_test
+prefix: D:\Anaconda\envs\Rnns
