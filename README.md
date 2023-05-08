@@ -39,9 +39,9 @@ $ cd Pro-Fusang
 
 # Install python environment
 $ cd 04_gnns_hrrp
-$ conda env create -f environment.yml   
+$ conda env create -f environment.yaml   
 $ cd 05_rnns_iq
-$ conda env create -f environment.yml 
+$ conda env create -f environment.yaml 
 
 # Activate environment
 conda activate envs
