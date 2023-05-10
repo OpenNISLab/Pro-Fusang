@@ -1,6 +1,7 @@
-# Pro-Fusang
- This repository is an Open-source code for the paper "Fusang: Graph-inspired Robust and Accurate Object Recognition on Commodity mmWave Devices". 
+# Pro-Fusang 
+This repository is an Open-source code for the paper "Fusang: Graph-inspired Robust and Accurate Object Recognition on Commodity mmWave Devices". 
 
+[![DOI](https://zenodo.org/badge/624917399.svg)](https://zenodo.org/badge/latestdoi/624917399)
 
 ## Abstract
 >Fusang is a novel object recognition system that only requires a single COTS mmWave Radar. It uses HRRP data and IQ 
