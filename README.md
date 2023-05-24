@@ -1,5 +1,5 @@
 # Pro-Fusang 
-This repository is an Open-source code for the paper "Fusang: Graph-inspired Robust and Accurate Object Recognition on Commodity mmWave Devices". 
+This repository is an Open-source code for the Mobisys 2023 paper "Fusang: Graph-inspired Robust and Accurate Object Recognition on Commodity mmWave Devices". 
 
 [![DOI](https://zenodo.org/badge/624917399.svg)](https://zenodo.org/badge/latestdoi/624917399)
 
